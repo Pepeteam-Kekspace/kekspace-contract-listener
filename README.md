@@ -1,8 +1,12 @@
 # Kekspace Contract API - Contract Event Listener
 
+See install.txt for quick setup instructions.
+
 This project listens to smart contract events using ethers.js v5.
 
 ## Setup
+
+Strongly recommended to run this under a separate user (useradd -m -s /bin/bash myuser)
 
 1. **Install dependencies:**
    ```bash
@@ -24,6 +28,10 @@ Run the event listener to monitor TransferSingle events in real-time:
 npm run listen
 ```
 
+Start the API endpoint 
+```bash
+npm run listen
+```
 Or directly:
 
 ```bash
@@ -45,6 +53,9 @@ The listener is configured to start automatically on system boot via systemd. Af
 ```bash
 # Start the listener
 pm2 start listener.js --name listener
+
+# Start the endpoint API (also see below)
+pm2 start api.js --name kekapi
 
 # Check status
 pm2 status
@@ -69,9 +80,12 @@ pm2 delete listener
 
 # Save current process list (needed after adding/removing processes)
 pm2 save
+
+# Stop pm2 and all processes
+pm2 kill
 ```
 
-**Note:** The listener is already configured to start on boot. If you need to reconfigure the startup script, run `pm2 startup systemd` and execute the generated command with sudo.
+**Note:** If you need to reconfigure the startup script, run `pm2 startup systemd` and execute the generated command with sudo.
 
 ### API Server
 

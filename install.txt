@@ -1,0 +1,18 @@
+#Recommended to run under seperate user. 
+
+#useradd -s /bin/bash -m npmuser
+#su npmuser
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+
+source ~/.bashrc
+
+nvm install node
+
+npm install
+
+npm install -g pm2
+
+pm2 start listener.js
+
+pm2 start api.js

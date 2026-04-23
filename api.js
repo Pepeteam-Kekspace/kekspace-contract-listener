@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.KEKAPI_PORT || 3000;
+const PORT = process.env.PORT || 3030;
 
 // Middleware to parse JSON requests
 app.use(express.json());
 
-// Web3Data endpoint
-app.post('/Web3Data', (req, res) => {
+// KekSpace/Web3ItemTransfer endpoint
+app.post('/KekSpace/Web3ItemTransfer', (req, res) => {
     try {
         const {
             block_number,
@@ -30,7 +30,7 @@ app.post('/Web3Data', (req, res) => {
         }
 
         // Log the received data
-        console.log('🔄 Web3Data Received!');
+        console.log('🔄 Web3ItemTransfer Received!');
         console.log('=====================================');
         console.log(`Block Number: ${block_number}`);
         console.log(`Transaction Hash: ${tx_hash}`);
@@ -54,12 +54,12 @@ app.post('/Web3Data', (req, res) => {
 
         // Send success response
         res.status(200).json({
-            message: 'Web3Data processed successfully',
+            message: 'Web3ItemTransfer processed successfully',
             data: processedData
         });
 
     } catch (error) {
-        console.error('Error processing Web3Data:', error);
+        console.error('Error processing Web3ItemTransfer:', error);
         res.status(500).json({
             error: 'Internal server error',
             message: error.message
@@ -79,7 +79,7 @@ app.get('/health', (req, res) => {
 // Start the server
 app.listen(PORT, () => {
     console.log(`🚀 Express API server running on port ${PORT}`);
-    console.log(`📡 Web3Data endpoint: http://localhost:${PORT}/Web3Data`);
+    console.log(`📡 Web3ItemTransfer endpoint: http://localhost:${PORT}/Kekspace/Web3ItemTransfer`);
     console.log(`🔍 Health check: http://localhost:${PORT}/health`);
 });
 
