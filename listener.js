@@ -11,7 +11,7 @@ const CONTRACT_ABI = JSON.parse(fs.readFileSync('./abi.json', 'utf8'));
 // API configuration
 //prod=http://localhost:3000/KekSpace/Web3ItemTransfer
 //local=http://localhost:3000/Web3Data
-const API_ENDPOINT = 'http://localhost:3000/KekSpace/Web3ItemTransfer';
+const API_ENDPOINT = `http://localhost:${process.env.KEKAPI_PORT || 3000}/KekSpace/Web3ItemTransfer`;
 
 const WSS_RPC_URL = 'wss://ethereum-sepolia-rpc.publicnode.com';
 
