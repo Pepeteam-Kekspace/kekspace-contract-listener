@@ -15,8 +15,13 @@ Strongly recommended to run this under a separate user (useradd -m -s /bin/bash 
 
 2. **Contract Configuration:**
    - Contract Address: `0x551982C4141144802c940bdE90C0Ac1667b018CC`
+
    - Network: Sepolia Testnet
-   - WebSocket RPC: `wss://sepolia.gateway.tenderly.co`
+   - (WebSocket RPC: `wss://sepolia.gateway.tenderly.co` --never used )
+   - (PREVIOUSLY, hitting rate limits: wss://ethereum-sepolia-rpc.publicnode.com )
+   
+   - WebSocket RPC: `wss://sepolia.infura.io/ws/v3/... API KEY` 
+     RPC is configurable via `WSS_RPC_URL` env var
 
 ## Usage
 
@@ -168,3 +173,4 @@ If you encounter connection issues:
 4. Make sure the ABI file is properly formatted
 
 To stop the listener when running with PM2, use `pm2 stop listener`. If running directly with `node listener.js`, press `Ctrl+C` in the terminal. 
+

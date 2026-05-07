@@ -13,7 +13,9 @@ const CONTRACT_ABI = JSON.parse(fs.readFileSync('./abi.json', 'utf8'));
 //local=http://localhost:3000/Web3Data
 const API_ENDPOINT = `http://localhost:${process.env.KEKAPI_PORT || 3030}/KekSpace/Web3ItemTransfer`;
 
-const WSS_RPC_URL = 'wss://ethereum-sepolia-rpc.publicnode.com';
+// PREVIOUSLY, hitting rate limits: const WSS_RPC_URL = 'wss://ethereum-sepolia-rpc.publicnode.com';
+
+const WSS_RPC_URL = process.env.WSS_RPC_URL || 'wss://sepolia.infura.io/ws/v3/YOUR_INFURA_PROJECT_ID';
 
 async function listenToTransferSingleEvents() {
     try {
