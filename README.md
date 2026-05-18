@@ -1,3 +1,6 @@
+# No longer used -- see pepeteam-kekspace/kekspace-item-relay
+
+
 # Kekspace Contract API - Contract Event Listener
 
 See install.txt for quick setup instructions.
